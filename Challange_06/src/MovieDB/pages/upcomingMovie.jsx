@@ -18,7 +18,7 @@ const Navbar = () => {
           </Link>
           <Link
             to={`/movie-trending`}
-            className="text-white bg-blue-600 hover:bg-red-500 p-2 rounded mr-4"
+            className="text-white hover:bg-red-500 p-2 rounded mr-4"
           >
             Trending
           </Link>
@@ -39,6 +39,12 @@ const Navbar = () => {
             className="text-white hover:bg-red-500 p-2 rounded"
           >
             Now Playing
+          </Link>
+          <Link
+            to={`/upcoming`}
+            className="text-white bg-blue-600 hover:bg-red-500 p-2 rounded"
+          >
+            Upcoming
           </Link>
         </div>
         <div>

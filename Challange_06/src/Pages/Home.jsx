@@ -106,34 +106,35 @@ export default function Home() {
             Now Playing Movies
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {data.slice(0, 8).map((movie) => (
-              <div
-                key={movie.id}
-                className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-                onClick={() =>
-                  navigate("/movie-detail", dispatch(setId(movie?.id)))
-                }
-              >
-                <img
-                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                  alt={movie.title}
-                  className="w-[1000px] h-auto object-cover rounded-t-lg"
-                />
-                <div className="p-6">
-                  <h2 className="text-xl font-semibold mb-2 text-gray-800 text-center">
-                    {movie.title}
-                  </h2>
-                  <p className="text-gray-500 mb-4">
-                    Release Date: {movie.release_date}
-                  </p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">
-                      Rating: {movie.vote_average}
-                    </span>
+            {data &&
+              data.slice(0, 8).map((movie) => (
+                <div
+                  key={movie.id}
+                  className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+                  onClick={() =>
+                    navigate("/movie-detail", dispatch(setId(movie?.id)))
+                  }
+                >
+                  <img
+                    src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                    alt={movie.title}
+                    className="w-[1000px] h-auto object-cover rounded-t-lg"
+                  />
+                  <div className="p-6">
+                    <h2 className="text-xl font-semibold mb-2 text-gray-800 text-center">
+                      {movie.title}
+                    </h2>
+                    <p className="text-gray-500 mb-4">
+                      Release Date: {movie.release_date}
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">
+                        Rating: {movie.vote_average}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
           <div className="text-center mt-8">
             <Link
