@@ -160,38 +160,39 @@ const MovieSearch = () => {
           id="movie-grid"
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-landing text-center"
         >
-          {data.map((movie) => (
-            <div
-              key={movie.id}
-              className="bg-white rounded-lg shadow-md p-4 flex flex-col justify-between"
-            >
-              <div>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                  alt={movie.title}
-                  className="rounded-md"
-                />
-                <h1 className="text-2xl">{movie.title}</h1>
+          {data &&
+            data.map((movie) => (
+              <div
+                key={movie.id}
+                className="bg-white rounded-lg shadow-md p-4 flex flex-col justify-between"
+              >
+                <div>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                    alt={movie.title}
+                    className="rounded-md"
+                  />
+                  <h1 className="text-2xl">{movie.title}</h1>
 
-                <h2 className="text-gray-600 mb-2">
-                  Release Date: {movie.release_date}
-                </h2>
-                <p className="text-gray-700 text-justify">
-                  {limitWord(movie.overview, 20)}
-                </p>
+                  <h2 className="text-gray-600 mb-2">
+                    Release Date: {movie.release_date}
+                  </h2>
+                  <p className="text-gray-700 text-justify">
+                    {limitWord(movie.overview, 20)}
+                  </p>
+                </div>
+                <div className="flex justify-center">
+                  <button
+                    onClick={() => {
+                      navigate("/movie-detail", dispatch(setId(movie?.id)));
+                    }}
+                    className="block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mt-4 w-72 text-center transition duration-300 ease-in-out transform hover:scale-105"
+                  >
+                    Detail
+                  </button>
+                </div>
               </div>
-              <div className="flex justify-center">
-                <button
-                  onClick={() => {
-                    navigate("/movie-detail", dispatch(setId(movie?.id)));
-                  }}
-                  className="block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mt-4 w-72 text-center transition duration-300 ease-in-out transform hover:scale-105"
-                >
-                  Detail
-                </button>
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>{" "}
     </div>

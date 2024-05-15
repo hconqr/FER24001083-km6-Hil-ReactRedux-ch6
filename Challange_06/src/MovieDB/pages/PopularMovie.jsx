@@ -183,40 +183,41 @@ export default function PopularMovie() {
           </button>
         </div>
         <div className="grid grid-cols-3 gap-4">
-          {data.map((movie) => (
-            <div
-              key={movie.id}
-              className="border p-4 rounded-lg shadow-md cursor-pointer overflow-hidden transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-              style={{ height: "100%" }}
-            >
+          {data &&
+            data.map((movie) => (
               <div
-                className="bg-cover min-h-[250px] w-full rounded-t-md flex flex-col items-center pt-5 relative"
-                onClick={() => {
-                  navigate("/movie-detail", dispatch(setId(movie?.id)));
-                }}
+                key={movie.id}
+                className="border p-4 rounded-lg shadow-md cursor-pointer overflow-hidden transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+                style={{ height: "100%" }}
               >
-                <img
-                  className="absolute -z-20 max-h-[250px] object-cover w-full top-0 left-0 filter blur-[3px]"
-                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                  alt=""
-                />
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                  alt={movie.title}
-                  className="max-w-44 rounded-sm"
-                />
-                <h2 className="font-bold px-5 text-xl mt-3 mb-2">
-                  {movie.title}
-                </h2>
-                <h2 className="px-5 mb-2">
-                  Release date: {movie.release_date}
-                </h2>
-                <h2 className="font-thin px-5 mb-2 text-justify">
-                  {movie.overview.slice(0, 150)}...
-                </h2>
+                <div
+                  className="bg-cover min-h-[250px] w-full rounded-t-md flex flex-col items-center pt-5 relative"
+                  onClick={() => {
+                    navigate("/movie-detail", dispatch(setId(movie?.id)));
+                  }}
+                >
+                  <img
+                    className="absolute -z-20 max-h-[250px] object-cover w-full top-0 left-0 filter blur-[3px]"
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                    alt=""
+                  />
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                    alt={movie.title}
+                    className="max-w-44 rounded-sm"
+                  />
+                  <h2 className="font-bold px-5 text-xl mt-3 mb-2">
+                    {movie.title}
+                  </h2>
+                  <h2 className="px-5 mb-2">
+                    Release date: {movie.release_date}
+                  </h2>
+                  <h2 className="font-thin px-5 mb-2 text-justify">
+                    {movie.overview.slice(0, 150)}...
+                  </h2>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>{" "}
     </div>
