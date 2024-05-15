@@ -64,7 +64,9 @@ export default function Detail() {
     dispatch(fetchMovieDetails(id));
   }, []);
 
-  const backgroundImageUrl = `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`;
+  const backgroundImageUrl = movie
+    ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
+    : "";
 
   return (
     <div>
