@@ -15,6 +15,7 @@ import TrendingMovie from "./MovieDB/pages/trendingMovies";
 import PopularMovie from "./MovieDB/pages/PopularMovie";
 import FavMovies from "./MovieDB/pages/FavMovies";
 import NowPlaying from "./MovieDB/pages/movie";
+import Upcoming from "./MovieDB/pages/upcomingMovie";
 import { useSelector } from "react-redux";
 
 export default function App() {
@@ -59,6 +60,10 @@ export default function App() {
     {
       path: "/movie-now",
       element: isLoggedIn ? <NowPlaying /> : <Navigate to="/login" />,
+    },
+    {
+      path: "/upcoming",
+      element: isLoggedIn ? <Upcoming /> : <Navigate to="/login" />,
     },
   ]);
   return (

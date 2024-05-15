@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTrendingMovies } from "../../redux/actions/trendingMovieAct";
+import { Link, useNavigate } from "react-router-dom";
+import { getUpcomingMovie } from "../../redux/actions/upcomingMovieAct";
 import { setId } from "../../redux/reducers/detailMovieRdc";
 import NoImage from "../assets/notFound_BG.jpg";
 
@@ -54,24 +54,27 @@ const Navbar = () => {
   );
 };
 
-export default function TrendingMovie() {
+export default function UpcomingMovie() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.trendingMovie?.movies);
 
+  const data = useSelector((state) => state.upcomingMovie?.movies);
   console.log("data", data);
+
   const statenya = useSelector((state) => state);
   console.log("statenya", statenya);
 
   useEffect(() => {
-    dispatch(getTrendingMovies());
+    dispatch(getUpcomingMovie());
   }, []);
+
+  const handleNextPage = () => {};
 
   return (
     <>
       <Navbar />
       <div className="container mx-auto px-4 text-justify">
-        <h1 className="text-3xl font-bold my-4">Trending Movies</h1>
+        <h1 className="text-3xl font-bold my-4">Upcoming Movies</h1>
         {data ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {data.map((item, index) => (

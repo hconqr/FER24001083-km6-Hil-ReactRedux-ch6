@@ -2,7 +2,7 @@ import axios from "axios";
 import { setMovies } from "../reducers/trendingMovieRdc";
 
 // Action to fetch now playing movies
-export const getTrendingMovies = () => async (dispatch, getState) => {
+export const getTrendingMovies = () => async (dispatch) => {
   try {
     const response = await axios.get(
       "https://api.themoviedb.org/3/trending/movie/day?language=id-ID",

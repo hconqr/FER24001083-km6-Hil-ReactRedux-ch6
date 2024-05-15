@@ -120,7 +120,9 @@ export default function Home() {
                   className="w-[1000px] h-auto object-cover rounded-t-lg"
                 />
                 <div className="p-6">
-                  <h2 className="text-xl font-semibold mb-2">{movie.title}</h2>
+                  <h2 className="text-xl font-semibold mb-2 text-gray-800 text-center">
+                    {movie.title}
+                  </h2>
                   <p className="text-gray-500 mb-4">
                     Release Date: {movie.release_date}
                   </p>

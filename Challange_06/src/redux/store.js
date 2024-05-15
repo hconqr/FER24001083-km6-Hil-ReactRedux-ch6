@@ -9,6 +9,7 @@ import trendingMoviesRdc from "./reducers/trendingMovieRdc";
 import popularMovieRdc from "./reducers/popularMovieRdc";
 import searchMovieRdc from "./reducers/searchMovieRdc";
 import loginRdc from "./reducers/loginRdc";
+import upcomingMovieRdc from "./reducers/upcomingMovieRdc";
 
 const rootReducers = combineReducers({
   detail: detailMovieRdc,
@@ -18,6 +19,7 @@ const rootReducers = combineReducers({
   popularMovie: popularMovieRdc,
   searchMovie: searchMovieRdc,
   login: loginRdc,
+  upcomingMovie: upcomingMovieRdc,
 });
 
 const persistConfig = {

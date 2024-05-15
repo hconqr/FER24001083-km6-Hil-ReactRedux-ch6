@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovieDetails } from "../../redux/actions/detailMovieAct";
+import NoImage from "../assets/notFound_BG.jpg";
 
 const Navbar = () => {
   return (
@@ -70,13 +71,21 @@ export default function Detail() {
       <Navbar />
       <div
         className="mx-auto p-4 bg-black bg-cover"
-        style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+        style={{
+          backgroundImage: `url(${
+            backgroundImageUrl ? backgroundImageUrl : "NoImage"
+          })`,
+        }}
       >
         <div className="bg-white bg-opacity-80 rounded-lg shadow-lg p-4">
           <div className="flex flex-col lg:flex-row p-5 pb-10">
             <div className="flex-1 flex justify-center items-center mt-8 lg:mt-0">
               <img
-                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                src={
+                  movie.poster_path
+                    ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                    : NoImage
+                }
                 alt={movie.title}
                 className="w-auto max-h-96 rounded-lg"
               />
