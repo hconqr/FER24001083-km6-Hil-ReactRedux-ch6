@@ -84,25 +84,29 @@ export default function Detail() {
             <div className="flex-1 flex justify-center items-center mt-8 lg:mt-0">
               <img
                 src={
-                  movie.poster_path
+                  movie && movie.poster_path
                     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
                     : NoImage
                 }
-                alt={movie.title}
+                alt={movie && movie.title}
                 className="w-auto max-h-96 rounded-lg"
               />
             </div>
             <div className="flex-1">
               <h2 className="text-3xl font-bold my-4 text-blue-900">
-                {movie.title}
+                {movie && movie.title}
               </h2>
               <h2 className="text-gray-600 mb-2">
-                Release date: {movie.release_date}
+                Release date: {movie && movie.release_date}
               </h2>
-              <h2 className="mb-2">Status: {movie.status}</h2>
-              <h2 className="mb-2">Popularity: {movie.popularity} viewers</h2>
-              <h2 className="mb-2">Runtime: {movie.runtime} minutes</h2>
-              <p className="text-gray-800 mb-4">{movie.overview}</p>
+              <h2 className="mb-2">Status: {movie && movie.status}</h2>
+              <h2 className="mb-2">
+                Popularity: {movie && movie.popularity} viewers
+              </h2>
+              <h2 className="mb-2">
+                Runtime: {movie && movie.runtime} minutes
+              </h2>
+              <p className="text-gray-800 mb-4">{movie && movie.overview}</p>
             </div>
           </div>
         </div>
