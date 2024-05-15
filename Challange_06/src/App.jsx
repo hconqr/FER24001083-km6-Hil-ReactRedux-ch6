@@ -67,7 +67,7 @@ export default function App() {
     },
   ]);
   return (
-    <GoogleOAuthProvider clientId="748133478944-gojlftepeq0f0521jq7dofovcks41428.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="952236699134-v5lj1cru3f096cg7cspivq8i2e34c0se.apps.googleusercontent.com">
       <RouterProvider router={router} />
     </GoogleOAuthProvider>
   );
