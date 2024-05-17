@@ -46,6 +46,12 @@ const Navbar = () => {
           >
             Now Playing
           </Link>
+          <Link
+            to={`/upcoming`}
+            className="text-white hover:bg-red-500 p-2 rounded"
+          >
+            Upcoming
+          </Link>
         </div>
         <div>
           <Link
@@ -91,45 +97,6 @@ export default function PopularMovie() {
     moviesPopular();
     window.location.reload();
   };
-
-  // useEffect(() => {
-  //   console.log("localStorage ", localStorage.getItem("token"));
-  //   if (localStorage.getItem("token") === null) {
-  //     alert("Silakan login terlebih dahulu.");
-  //     navigate("/login");
-  //   } else {
-  //     async function fetchData() {
-  //       if (localStorage.getItem("login") === "google component") {
-  //         const decoded = jwtDecode(localStorage.getItem("token"));
-  //         if (decoded?.exp < new Date() / 1000) {
-  //           alert("Token telah kedaluwarsa.");
-  //         }
-  //       } else {
-  //         try {
-  //           const res = await fetch(
-  //             "https://shy-cloud-3319.fly.dev/api/v1/auth/me",
-  //             {
-  //               method: "GET",
-  //               headers: {
-  //                 Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //               },
-  //             }
-  //           );
-  //           const resJson = await res?.json();
-  //           if (res?.status === 401) {
-  //             alert("Berhasil login");
-  //             return;
-  //           }
-  //           console.log("first", resJson);
-  //         } catch (error) {
-  //           alert("Token telah kedaluwarsa.");
-  //           console.log("error ", error);
-  //         }
-  //       }
-  //     }
-  //     fetchData();
-  //   }
-  // }, [navigate]);
 
   return (
     <div

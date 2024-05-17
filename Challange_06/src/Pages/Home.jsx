@@ -59,6 +59,12 @@ const Navbar = () => {
             Now Playing
           </Link>
           <Link
+            to={`/upcoming`}
+            className="text-white hover:bg-red-500 p-2 rounded"
+          >
+            Upcoming
+          </Link>
+          <Link
             to={`/movie`}
             className="hover:bg-red-500 text-white font-semibold py-2 px-4 rounded inline-block"
           >

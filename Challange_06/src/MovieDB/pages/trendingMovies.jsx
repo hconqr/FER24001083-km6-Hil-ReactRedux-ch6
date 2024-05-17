@@ -40,6 +40,12 @@ const Navbar = () => {
           >
             Now Playing
           </Link>
+          <Link
+            to={`/upcoming`}
+            className="text-white hover:bg-red-500 p-2 rounded"
+          >
+            Upcoming
+          </Link>
         </div>
         <div>
           <Link
