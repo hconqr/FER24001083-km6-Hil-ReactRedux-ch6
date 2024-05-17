@@ -84,7 +84,10 @@ export default function Detail() {
   }, []);
 
   const trailerMovie = useSelector((state) => state.detail?.trailer);
-  const theTrailer = trailerMovie.results && trailerMovie.results[0]?.key;
+  const theTrailer =
+    trailerMovie && trailerMovie.results && trailerMovie.results.length > 0
+      ? trailerMovie.results[0].key
+      : null;
   console.log("theTrailer", theTrailer);
 
   function redirectToYouTube() {
