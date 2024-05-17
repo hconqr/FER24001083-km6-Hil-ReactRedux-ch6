@@ -35,7 +35,7 @@ const Navbar = () => {
           </Link>
           <Link
             to={`/movie-now`}
-            className="text-white bg-blue-600 hover:bg-red-500 p-2 rounded"
+            className="text-white bg-blue-600 hover:bg-red-500 p-2 mr-4 rounded"
           >
             Now Playing
           </Link>

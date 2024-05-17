@@ -6,6 +6,7 @@ const initialState = {
   detail: null,
   reviews: null,
   id: null,
+  trailer: null,
 };
 
 const theMovie = createSlice({
@@ -27,10 +28,19 @@ const theMovie = createSlice({
     setlanguage: (state, action) => {
       state.language = action.payload;
     },
+    setTrailer: (state, action) => {
+      state.trailer = action.payload;
+    },
   },
 });
 
-export const { setMovies, setDetail, setReviews, setId, setlanguage } =
-  theMovie.actions;
+export const {
+  setMovies,
+  setDetail,
+  setReviews,
+  setId,
+  setlanguage,
+  setTrailer,
+} = theMovie.actions;
 
 export default theMovie.reducer;

@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovieDetails } from "../../redux/actions/detailMovieAct";
+import {
+  fetchMovieDetails,
+  fetchTrailer,
+} from "../../redux/actions/detailMovieAct";
 import NoImage from "../assets/notFound_BG.jpg";
 
 const Navbar = () => {
@@ -35,9 +38,15 @@ const Navbar = () => {
           </Link>
           <Link
             to={`/movie-now`}
-            className="text-white hover:bg-red-500 p-2 rounded"
+            className="text-white hover:bg-red-500 p-2 mr-4 rounded"
           >
             Now Playing
+          </Link>
+          <Link
+            to={`/upcoming`}
+            className="text-white hover:bg-red-500 p-2 rounded"
+          >
+            Upcoming
           </Link>
         </div>
         <div>
@@ -60,7 +69,10 @@ const Navbar = () => {
 };
 
 export default function Detail() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const statenya = useSelector((state) => state);
+  console.log("statenya", statenya);
   const id = useSelector((state) => state.detail?.id);
   console.log("id", id);
   const movie = useSelector((state) => state.detail?.detail);
@@ -68,8 +80,19 @@ export default function Detail() {
 
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
+    dispatch(fetchTrailer(id));
   }, []);
 
+  const trailerMovie = useSelector((state) => state.detail?.trailer);
+  const theTrailer = trailerMovie.results[0]?.key;
+  console.log("theTrailer", theTrailer);
+
+  function redirectToYouTube() {
+    const youtubeUrl = theTrailer
+      ? `https://www.youtube.com/watch?v=${theTrailer}`
+      : "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    window.open(youtubeUrl, "_blank");
+  }
   const backgroundImageUrl = movie
     ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
     : "";
@@ -113,6 +136,12 @@ export default function Detail() {
                 Runtime: {movie && movie.runtime} minutes
               </h2>
               <p className="text-gray-800 mb-4">{movie && movie.overview}</p>
+              <button
+                onClick={redirectToYouTube}
+                className="bg-blue-500 text-white font-semibold py-2 px-4 rounded border-none hover:bg-blue-700"
+              >
+                Trailer
+              </button>
             </div>
           </div>
         </div>
