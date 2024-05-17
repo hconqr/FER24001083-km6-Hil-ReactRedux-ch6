@@ -69,13 +69,10 @@ const Navbar = () => {
 const MovieSearch = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const statenya = useSelector((state) => state);
-  console.log("statenya", statenya);
+
   const data = useSelector((state) => state.searchMovie?.movies);
   const searchKeyword = useSelector((state) => state.searchMovie?.query);
   const searchYear = useSelector((state) => state.searchMovie?.year);
-
-  console.log("data", data);
 
   useEffect(() => {
     dispatch(searchMovie());

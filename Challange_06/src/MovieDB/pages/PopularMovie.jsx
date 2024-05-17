@@ -69,10 +69,7 @@ const Navbar = () => {
 export default function PopularMovie() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const statenya = useSelector((state) => state);
-  console.log("statenya", statenya);
   const data = useSelector((state) => state.popularMovie?.movies);
-  console.log("data", data);
 
   useEffect(() => {
     dispatch(moviesPopular());

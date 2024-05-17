@@ -12,7 +12,6 @@ const Navbar = () => {
   console.log("statenya", statenya);
 
   const logoutin = useSelector((state) => state.login?.token);
-  console.log("logoutin", logoutin);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -97,7 +96,6 @@ export default function Home() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.nowPlaying?.movies);
-  console.log("data", data);
 
   useEffect(() => {
     dispatch(fetchNowPlayingMovies());

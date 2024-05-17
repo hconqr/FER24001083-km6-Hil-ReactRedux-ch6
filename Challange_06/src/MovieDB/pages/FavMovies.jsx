@@ -66,7 +66,6 @@ const FavMovies = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.favMovie.movies);
   const language = useSelector((state) => state.favMovie);
-  console.log("language", language);
 
   useEffect(() => {
     dispatch(fetchFavoriteMovies());
@@ -75,7 +74,6 @@ const FavMovies = () => {
   const handleLanguage = (event) => {
     const selectedLanguage = event.target.value;
     dispatch(languageState(selectedLanguage)); // Pass the selected language as payload
-    console.log("languageState", languageState);
   };
 
   const handleMovieClick = (movieId) => {

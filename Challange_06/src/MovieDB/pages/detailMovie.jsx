@@ -66,11 +66,8 @@ export default function Detail() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const statenya = useSelector((state) => state);
-  console.log("statenya", statenya);
   const id = useSelector((state) => state.detail?.id);
-  console.log("id", id);
   const movie = useSelector((state) => state.detail?.detail);
-  console.log("Movie", movie);
 
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
@@ -82,7 +79,6 @@ export default function Detail() {
     trailerMovie && trailerMovie.results && trailerMovie.results.length > 0
       ? trailerMovie.results[0].key
       : null;
-  console.log("theTrailer", theTrailer);
 
   function redirectToYouTube() {
     const youtubeUrl = theTrailer

@@ -63,7 +63,6 @@ const NowPlaying = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.nowPlaying?.movies);
-  console.log("data", data);
   useEffect(() => {
     dispatch(fetchNowPlayingMovies());
   }, []);

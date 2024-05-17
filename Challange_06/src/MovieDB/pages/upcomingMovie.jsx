@@ -65,10 +65,6 @@ export default function UpcomingMovie() {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.upcomingMovie?.movies);
-  console.log("data", data);
-
-  const statenya = useSelector((state) => state);
-  console.log("statenya", statenya);
 
   useEffect(() => {
     dispatch(getUpcomingMovie());
