@@ -56,12 +56,6 @@ const Navbar = () => {
           >
             Cari Movie
           </Link>
-          <Link
-            to={`/upcoming`}
-            className="text-white hover:bg-red-500 p-2 rounded"
-          >
-            Upcoming
-          </Link>
         </div>
       </nav>
     </div>
