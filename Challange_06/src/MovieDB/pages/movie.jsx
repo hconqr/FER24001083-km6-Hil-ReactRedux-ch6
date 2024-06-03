@@ -53,11 +53,11 @@ const NowPlaying = () => {
 
 const CombinedComponent = () => {
   return (
-    <>
+    <div className="bg-gray-800">
       <Navbar />
       <NowPlaying />
       <Footer />
-    </>
+    </div>
   );
 };
 

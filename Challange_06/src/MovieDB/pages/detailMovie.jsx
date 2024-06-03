@@ -38,7 +38,7 @@ export default function Detail() {
     : "";
 
   return (
-    <div>
+    <div className="w-full">
       <Navbar />
       <div
         className="mx-auto p-4 bg-black bg-cover"
@@ -48,7 +48,7 @@ export default function Detail() {
           })`,
         }}
       >
-        <div className="bg-white bg-opacity-80 rounded-lg shadow-lg p-4">
+        <div className="bg-slate-200 bg-opacity-60 rounded-lg shadow-lg p-4">
           <div className="flex flex-col lg:flex-row p-5 pb-10">
             <div className="flex-1 flex justify-center items-center mt-8 lg:mt-0">
               <img

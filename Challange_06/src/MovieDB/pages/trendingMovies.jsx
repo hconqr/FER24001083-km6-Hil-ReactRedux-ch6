@@ -17,7 +17,7 @@ export default function TrendingMovie() {
   }, []);
 
   return (
-    <>
+    <div className="bg-gray-800">
       <Navbar />
       <div className="container mx-auto px-4 text-justify bg-gray-800">
         <h1 className="text-3xl font-bold text-white py-10 flex justify-center">
@@ -65,6 +65,6 @@ export default function TrendingMovie() {
         )}
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
