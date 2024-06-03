@@ -2,64 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchFavoriteMovies } from "../../redux/actions/favMovieAct";
 import { useDispatch, useSelector } from "react-redux";
-import { jwtDecode } from "jwt-decode";
 import { setId } from "../../redux/reducers/detailMovieRdc";
 import { languageState } from "../../redux/reducers/favMovieRdc";
-
-const Navbar = () => {
-  return (
-    <div className="bg-gray-900">
-      <nav className="container mx-auto flex items-center justify-between py-4">
-        <div>
-          <Link
-            to={`/`}
-            className="text-white hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Home
-          </Link>
-          <Link
-            to={`/movie-trending`}
-            className="text-white  hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Trending
-          </Link>
-          <Link
-            to={`/movie-favorite`}
-            className="text-white bg-blue-600 hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Favorite
-          </Link>
-          <Link
-            to={`/movie-popular`}
-            className="text-white hover:bg-red-500 p-2 mr-4 rounded"
-          >
-            Popular
-          </Link>
-          <Link
-            to={`/movie-now`}
-            className="text-white hover:bg-red-500 p-2 mr-4 rounded"
-          >
-            Now Playing
-          </Link>
-          <Link
-            to={`/upcoming`}
-            className="text-white hover:bg-red-500 p-2 rounded"
-          >
-            Upcoming
-          </Link>
-        </div>
-        <div>
-          <Link
-            to={`/movie`}
-            className="bg-blue-600 hover:bg-red-500 text-white font-semibold py-2 px-4 rounded inline-block"
-          >
-            Cari Movie
-          </Link>
-        </div>
-      </nav>
-    </div>
-  );
-};
+import Navbar from "../../Pages/Navbar";
+import Footer from "../../Pages/Footer";
 
 const FavMovies = () => {
   const navigate = useNavigate(); // Move useNavigate inside the component
@@ -87,8 +33,10 @@ const FavMovies = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-center my-10 font-bold text-2xl">Favorite Movie</h1>
+    <div className="bg-gray-800">
+      <h1 className="text-center font-bold text-2xl py-10 text-white">
+        Favorite Movie
+      </h1>
       <div className="max-w-8xl mx-auto flex flex-col justify-center items-center gap-8 pb-24">
         <form onSubmit={handleSubmit}>
           <div className="mx-10 ml-14 mb-8">
@@ -116,7 +64,7 @@ const FavMovies = () => {
           {data.map((movie) => (
             <div
               key={movie.id}
-              className="flex flex-col gap-y-3 max-w-[380px] min-w-[300px] max-sm:min-w-[250px] rounded-lg items-center border p-4  shadow-md cursor-pointer overflow-hidden transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+              className="bg-white flex flex-col gap-y-3 max-w-[380px] min-w-[300px] max-sm:min-w-[250px] rounded-lg items-center border p-4  shadow-md cursor-pointer overflow-hidden transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
               onClick={() => handleMovieClick(movie.id)}
             >
               <div className="bg-cover min-h-[250px] w-full rounded-t-md flex flex-col items-center pt-5 relative">
@@ -148,6 +96,7 @@ const CombinedComponent = () => {
     <>
       <Navbar />
       <FavMovies />
+      <Footer />
     </>
   );
 };

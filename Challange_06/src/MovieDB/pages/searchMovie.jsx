@@ -8,63 +8,8 @@ import {
   setYear,
 } from "../../redux/reducers/searchMovieRdc";
 import { setId } from "../../redux/reducers/detailMovieRdc";
-
-const API_KEY = "3d46ebf198dce59fc5e125d9ec59e72a";
-
-const Navbar = () => {
-  return (
-    <div className="bg-gray-900">
-      <nav className="container mx-auto flex items-center justify-between py-4">
-        <div>
-          <Link
-            to={`/`}
-            className="text-white hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Home
-          </Link>
-          <Link
-            to={`/movie-trending`}
-            className="text-white  hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Trending
-          </Link>
-          <Link
-            to={`/movie-favorite`}
-            className="text-white hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Favorite
-          </Link>
-          <Link
-            to={`/movie-popular`}
-            className="text-white hover:bg-red-500 p-2 mr-4 rounded"
-          >
-            Popular
-          </Link>
-          <Link
-            to={`/movie-now`}
-            className="text-white  hover:bg-red-500 p-2 mr-4 rounded"
-          >
-            Now Playing
-          </Link>
-          <Link
-            to={`/upcoming`}
-            className="text-white hover:bg-red-500 p-2 rounded"
-          >
-            Upcoming
-          </Link>
-        </div>
-        <div>
-          <Link
-            to={`/movie`}
-            className="bg-blue-600 hover:bg-red-500 text-white font-semibold py-2 px-4 rounded inline-block"
-          >
-            Cari Movie
-          </Link>
-        </div>
-      </nav>
-    </div>
-  );
-};
+import Navbar from "../../Pages/Navbar";
+import Footer from "../../Pages/Footer";
 
 const MovieSearch = () => {
   const dispatch = useDispatch();
@@ -109,9 +54,9 @@ const MovieSearch = () => {
   return (
     <div>
       <Navbar />
-      <div className="items-center justify-center h-screen bg-landing ">
-        <div className="flex flex-col items-center mt-10">
-          <h1 className="text-3xl font-bold mb-4  text-shadow-md">
+      <div className="items-center justify-center h-screen bg-landing bg-gray-800">
+        <div className="flex flex-col items-center pt-10">
+          <h1 className="text-white text-3xl font-bold mb-4  text-shadow-md">
             Movie Search
           </h1>
           <form
@@ -151,17 +96,16 @@ const MovieSearch = () => {
             <div>
               <button
                 type="submit"
-                className="bg-gray-900 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-blue-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               >
                 Search
               </button>
             </div>
           </form>
         </div>
-
         <div
           id="movie-grid"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-landing text-center"
+          className="bg-gray-800 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-landing text-center"
         >
           {data &&
             data.map((movie) => (
@@ -197,7 +141,8 @@ const MovieSearch = () => {
               </div>
             ))}
         </div>
-      </div>{" "}
+        <Footer />
+      </div>
     </div>
   );
 };

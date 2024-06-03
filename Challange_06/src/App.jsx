@@ -38,7 +38,7 @@ export default function App() {
       element: <Register />,
     },
     {
-      path: "/movie",
+      path: "/movie-search",
       element: isLoggedIn ? <MovieSearch /> : <Navigate to="/login" />,
     },
     {

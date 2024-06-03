@@ -3,61 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNowPlayingMovies } from "../../redux/actions/nowPlayingMovieAct";
 import { setId } from "../../redux/reducers/detailMovieRdc";
-
-const Navbar = () => {
-  return (
-    <div className="bg-gray-900">
-      <nav className="container mx-auto flex items-center justify-between py-4">
-        <div>
-          <Link
-            to={`/`}
-            className="text-white hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Home
-          </Link>
-          <Link
-            to={`/movie-trending`}
-            className="text-white  hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Trending
-          </Link>
-          <Link
-            to={`/movie-favorite`}
-            className="text-white hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Favorite
-          </Link>
-          <Link
-            to={`/movie-popular`}
-            className="text-white hover:bg-red-500 p-2 mr-4 rounded"
-          >
-            Popular
-          </Link>
-          <Link
-            to={`/movie-now`}
-            className="text-white bg-blue-600 hover:bg-red-500 p-2 mr-4 rounded"
-          >
-            Now Playing
-          </Link>
-          <Link
-            to={`/upcoming`}
-            className="text-white hover:bg-red-500 p-2 rounded"
-          >
-            Upcoming
-          </Link>
-        </div>
-        <div>
-          <Link
-            to={`/movie`}
-            className="bg-blue-600 hover:bg-red-500 text-white font-semibold py-2 px-4 rounded inline-block"
-          >
-            Cari Movie
-          </Link>
-        </div>
-      </nav>
-    </div>
-  );
-};
+import Navbar from "../../Pages/Navbar";
+import Footer from "../../Pages/Footer";
 
 const NowPlaying = () => {
   const navigate = useNavigate();
@@ -68,8 +15,8 @@ const NowPlaying = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8">
+    <div className="container mx-auto px-4 py-8 bg-gray-800">
+      <h1 className="text-4xl font-bold text-center mb-8 text-white">
         Now Playing Movies
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -109,6 +56,7 @@ const CombinedComponent = () => {
     <>
       <Navbar />
       <NowPlaying />
+      <Footer />
     </>
   );
 };

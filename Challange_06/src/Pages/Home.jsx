@@ -3,94 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNowPlayingMovies } from "../redux/actions/nowPlayingMovieAct";
 import { setId } from "../redux/reducers/detailMovieRdc";
-import { logout } from "../redux/reducers/loginRdc";
-
-const Navbar = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const statenya = useSelector((state) => state);
-  console.log("statenya", statenya);
-
-  const logoutin = useSelector((state) => state.login?.token);
-
-  const handleLogout = () => {
-    dispatch(logout());
-    window.location.reload();
-    alert("Berhasil logout");
-  };
-
-  return (
-    <div className="bg-gray-900">
-      <nav className="container mx-auto flex items-center justify-between py-4">
-        <div>
-          <Link
-            to={`/`}
-            className="text-white bg-blue-600 hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Home
-          </Link>
-          {!!logoutin ? (
-            <Link
-              to={`/movie-trending`}
-              className="text-white  hover:bg-red-500 p-2 rounded mr-4"
-            >
-              Trending
-            </Link>
-          ) : (
-            <Link to={`/login`}></Link>
-          )}
-          <Link
-            to={`/movie-favorite`}
-            className="text-white hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Favorite
-          </Link>
-          <Link
-            to={`/movie-popular`}
-            className="text-white hover:bg-red-500 p-2 mr-4 rounded"
-          >
-            Popular
-          </Link>
-          <Link
-            to={`/movie-now`}
-            className="text-white hover:bg-red-500 p-2 mr-4 rounded"
-          >
-            Now Playing
-          </Link>
-          <Link
-            to={`/upcoming`}
-            className="text-white hover:bg-red-500 p-2 rounded"
-          >
-            Upcoming
-          </Link>
-          <Link
-            to={`/movie`}
-            className="hover:bg-red-500 text-white font-semibold py-2 px-4 rounded inline-block"
-          >
-            Cari Movie
-          </Link>
-        </div>
-        <div>
-          {logoutin ? (
-            <button
-              className="bg-blue-600 hover:bg-red-500 text-white font-semibold py-2 px-4 rounded inline-block"
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
-          ) : (
-            <Link
-              to={`/login`}
-              className="bg-blue-600 hover:bg-red-500 text-white font-semibold py-2 px-4 rounded inline-block"
-            >
-              Login
-            </Link>
-          )}
-        </div>
-      </nav>
-    </div>
-  );
-};
+import Navbar from "./Navbar.jsx";
+import Footer from "./Footer.jsx";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -99,7 +13,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(fetchNowPlayingMovies());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
@@ -115,9 +29,10 @@ export default function Home() {
                 <div
                   key={movie.id}
                   className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-                  onClick={() =>
-                    navigate("/movie-detail", dispatch(setId(movie?.id)))
-                  }
+                  onClick={() => {
+                    dispatch(setId(movie?.id));
+                    navigate("/movie-detail");
+                  }}
                 >
                   <img
                     src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
@@ -150,6 +65,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

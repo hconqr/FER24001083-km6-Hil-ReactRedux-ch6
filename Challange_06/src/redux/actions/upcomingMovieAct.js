@@ -4,7 +4,7 @@ import { setMovies } from "../reducers/upcomingMovieRdc";
 // Action to fetch now playing movies
 export const getUpcomingMovie = () => async (dispatch, getState) => {
   const API_KEY = "d0ae83de32a46c56ef37b5365b3cb76e";
-  const page = 10;
+  const page = 3;
 
   try {
     // Fetch data from TMDB API with error handling

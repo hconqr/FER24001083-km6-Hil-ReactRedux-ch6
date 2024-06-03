@@ -8,63 +8,8 @@ import {
 } from "../../redux/reducers/popularMovieRdc";
 import { moviesPopular } from "../../redux/actions/popularMovieAct";
 import { setId } from "../../redux/reducers/detailMovieRdc";
-
-const API_KEY = "d0ae83de32a46c56ef37b5365b3cb76e";
-
-const Navbar = () => {
-  return (
-    <div className="bg-gray-900">
-      <nav className="container mx-auto flex items-center justify-between py-4">
-        <div>
-          <Link
-            to={`/`}
-            className="text-white hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Home
-          </Link>
-          <Link
-            to={`/movie-trending`}
-            className="text-white  hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Trending
-          </Link>
-          <Link
-            to={`/movie-favorite`}
-            className="text-white hover:bg-red-500 p-2 rounded mr-4"
-          >
-            Favorite
-          </Link>
-          <Link
-            to={`/movie-popular`}
-            className="text-white bg-blue-600 hover:bg-red-500 p-2 mr-4 rounded"
-          >
-            Popular
-          </Link>
-          <Link
-            to={`/movie-now`}
-            className="text-white hover:bg-red-500 p-2 mr-4 rounded"
-          >
-            Now Playing
-          </Link>
-          <Link
-            to={`/upcoming`}
-            className="text-white hover:bg-red-500 p-2 rounded"
-          >
-            Upcoming
-          </Link>
-        </div>
-        <div>
-          <Link
-            to={`/movie`}
-            className="bg-blue-600 hover:bg-red-500 text-white font-semibold py-2 px-4 rounded inline-block"
-          >
-            Cari Movie
-          </Link>
-        </div>
-      </nav>
-    </div>
-  );
-};
+import Navbar from "../../Pages/Navbar";
+import Footer from "../../Pages/Footer";
 
 export default function PopularMovie() {
   const dispatch = useDispatch();
@@ -101,8 +46,8 @@ export default function PopularMovie() {
       style={{ fontFamily: "'Poppins', sans-serif" }}
     >
       <Navbar />
-      <div className="mx-auto p-4">
-        <h1 className="text-3xl text-center font-bold mt-7 mb-4">
+      <div className="mx-auto p-4 bg-gray-800">
+        <h1 className="text-3xl text-center font-bold mt-7 mb-4 text-white">
           Popular Movies
         </h1>
         <div className="flex justify-center items-center mt-7 mb-4">
@@ -146,12 +91,12 @@ export default function PopularMovie() {
             Show
           </button>
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-4 mb-10">
           {data &&
             data.map((movie) => (
               <div
                 key={movie.id}
-                className="border p-4 rounded-lg shadow-md cursor-pointer overflow-hidden transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+                className="bg-white border p-4 rounded-lg shadow-md cursor-pointer overflow-hidden transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
                 style={{ height: "100%" }}
               >
                 <div
@@ -183,7 +128,8 @@ export default function PopularMovie() {
               </div>
             ))}
         </div>
-      </div>{" "}
+      </div>
+      <Footer />
     </div>
   );
 }
